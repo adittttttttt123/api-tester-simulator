@@ -138,13 +138,10 @@ table th, table td {
 }
 
 .watermark {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
+    padding: 20px;
     font-size: 16px;
     color: #888;
-    z-index: 1000;
-    pointer-events: none;
+    text-align: left;
 }
 
 .watermark strong {
