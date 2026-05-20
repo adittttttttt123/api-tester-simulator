@@ -1,0 +1,4 @@
+RewriteEngine On
+DirectoryIndex api/index.php
+RewriteRule ^history\.php$ api/history.php [L]
+RewriteRule ^index\.php$ api/index.php [L]

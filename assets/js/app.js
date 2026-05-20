@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('url', url);
             formData.append('method', method);
 
-            const proxyResponse = await fetch('api/proxy.php', {
+            const proxyResponse = await fetch('/api/proxy.php', {
                 method: 'POST',
                 body: formData
             });
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             response_times: responseTimesArray
         };
 
-        fetch('api/save-history.php', {
+        fetch('/api/save-history.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

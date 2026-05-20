@@ -5,8 +5,8 @@
     }
   },
   "rewrites": [
-    { "source": "/", "destination": "/api/router.php" },
-    { "source": "/index(.php)?", "destination": "/api/router.php" },
-    { "source": "/history(.php)?", "destination": "/api/router.php" }
+    { "source": "/", "destination": "/api/index.php" },
+    { "source": "/index(.php)?", "destination": "/api/index.php" },
+    { "source": "/history(.php)?", "destination": "/api/history.php" }
   ]
 }
