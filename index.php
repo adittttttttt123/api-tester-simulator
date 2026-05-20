@@ -61,6 +61,11 @@
             <h3>Performance Chart</h3>
             <canvas id="performanceChart"></canvas>
         </div>
+
+        <div class="callout callout-indigo">
+            <h4 style="margin-top: 0; color: var(--primary-color);">Software Quality Assurance (SQA) Insight</h4>
+            <p style="margin-bottom: 0;"><strong>Metrik Kelayakan Latensi:</strong> Dalam standar pengujian beban <em>(load testing)</em>, waktu respons (latensi) ideal berada di "Zona Aman" <strong>di bawah 200ms</strong>. Lonjakan di atas 500ms mengindikasikan perlunya optimalisasi database atau <em>caching</em>, dan di atas 1000ms (1 detik) sering dianggap kritis karena dapat menyebabkan *user abandonment* (pengguna meninggalkan aplikasi). Perhatikan grafik Anda untuk melihat apakah server konsisten atau mengalami fluktuasi saat beban bertambah!</p>
+        </div>
     </div>
 
     <div class="watermark">Created by <strong>adittttttttt123</strong></div>

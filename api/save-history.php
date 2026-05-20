@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($data)) {
     try {
         // Siapkan query SQL dengan prepared statements (Standar TRPL yang aman)
         $query = "INSERT INTO test_history 
-                  (url_target, http_method, total_requests, avg_response_time, success_rate, status_2xx, status_4xx, status_5xx) 
+                  (url_target, http_method, total_requests, avg_response_time, success_rate, status_2xx, status_4xx, status_5xx, response_times) 
                   VALUES 
-                  (:url, :method, :total, :avg_time, :success_rate, :s_2xx, :s_4xx, :s_5xx)";
+                  (:url, :method, :total, :avg_time, :success_rate, :s_2xx, :s_4xx, :s_5xx, :response_times)";
         
         $stmt = $pdo->prepare($query);
         
@@ -28,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($data)) {
         $stmt->bindParam(':s_2xx', $data['status_2xx']);
         $stmt->bindParam(':s_4xx', $data['status_4xx']);
         $stmt->bindParam(':s_5xx', $data['status_5xx']);
+        
+        $response_times_json = isset($data['response_times']) ? json_encode($data['response_times']) : '[]';
+        $stmt->bindParam(':response_times', $response_times_json);
         
         // Eksekusi query
         if ($stmt->execute()) {

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let status2xx = 0;
     let status4xx = 0;
     let status5xx = 0;
+    let responseTimesArray = [];
 
     if (startBtn) {
         startBtn.addEventListener('click', () => {
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             status2xx = 0;
             status4xx = 0;
             status5xx = 0;
+            responseTimesArray = [];
             
             isTesting = true;
             startBtn.disabled = true;
@@ -103,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             errorRequests++; // other errors (like timeout, 0)
         }
         
+        responseTimesArray.push(responseTime);
+        
         totalResponseTime += responseTime;
         avgResponseTime = totalResponseTime / totalRequests;
         
@@ -125,7 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
             success_rate: successRate,
             status_2xx: status2xx,
             status_4xx: status4xx,
-            status_5xx: status5xx
+            status_5xx: status5xx,
+            response_times: responseTimesArray
         };
 
         fetch('api/save-history.php', {
